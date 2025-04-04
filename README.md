@@ -45,11 +45,11 @@ A multiplexing technique is used by the remote to determine which button is pres
 ### Synchronization
 
 This got a little tricky.  There are 15 channels and the 00 channel (the function of which I don’t know).  So 00, 01, 02 03 04 05 06 07 08 09 10 11 12 13 14 15\.  This is two 7 segment display  
- **\_     a**  
-**| |   f b**  
- **\_     g**  
-**| |   e c**  
- **\-     d**  
+ a  
+f b  
+ g  
+e c  
+ d  
 Note that segments a, d, e, and f are off for 11 through 15 and on for 00 through 09\.  This will be used in software to determine a transition, 0 to 1 or 1 to 0, while pressing the *channel \+* button.  If the former transition, the channel is 00, if the latter, 10\.
 
 The display is made up of LEDs.  That’s exactly what the input to an opto-isolator is.  So I removed the *segment e* of the tens digit and I connected a regular LED to the two sides, not knowing which was which.   In the first way I connected the LED, I found that when the channel was 10-15, the LED was off and when 00-09 the LED was on.  Connecting the LED the other way was indeterminate.  The first way is the way to connect to the LED of the opto-isolator.  I determined which lead of my LED was the anode and that side of segment e would go to the anode of the opto-isolator (pin 1); the other side of segment e would connect to the cathode, (pin 2).  Ref [multiplexing 7 segment display](https://www.youtube.com/watch?v=zCOmdBOhVEA).
